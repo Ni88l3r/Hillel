@@ -34,7 +34,7 @@ def parse_cookie(string_to_parse):
             string_to_parse = string_to_parse[delimiter2+1:]
     return output
 
-
+  
 if __name__ == '__main__':
     assert parse('http://example.com/?name=Misha') == {'name': 'Misha'}
     assert parse('http://example.com/?name=Misha&') == {'name': 'Misha'}
