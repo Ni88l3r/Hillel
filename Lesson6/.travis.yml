@@ -1,0 +1,7 @@
+language: python
+python:
+  - "3.7"
+install:
+  - pip install -r ./Lesson6/requirements.txt
+script:
+  - flake8 ./Lesson6
