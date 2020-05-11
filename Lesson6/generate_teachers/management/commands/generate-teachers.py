@@ -16,8 +16,13 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         fake = Faker(['en_US', 'ru_RU', 'uk_UA'])
         count = kwargs['count']
+        teachers = []
         for _ in range(count):
-            teacher = Teacher.objects.create(first_name=fake.first_name(), last_name=fake.last_name(),
-                                             age=random.randint(20, 60), teaching_subjects=fake.job())
-            teacher.save()
+            teachers.append(Teacher(
+                first_name=fake.first_name(),
+                last_name=fake.last_name(),
+                age=random.randint(20, 60),
+                teaching_subjects=fake.job(),
+            ))
+        Teacher.objects.bulk_create(teachers)
         self.stdout.write(f'Created {count} teachers.')

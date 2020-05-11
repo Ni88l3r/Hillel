@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Teachers list</title>
+</head>
+<body>
+
+<a href="{% url 'index' %}">Main page</a> <a href="{% url 'create-teacher' %}">Create teacher</a><br><br>
+<b>Teachers list:</b><br>
+{% if teachers %}
+    {% for teacher in teachers %}
+        {{ teacher.info }}<br>
+    {% endfor %}
+{% else %}
+    List is empty.
+{% endif %}
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create student</title>
+</head>
+<body>
+
+<a href="{% url 'index' %}">Main page</a> <a href="{% url 'students' %}">Show students</a><br><br>
+<b>CREATE STUDENT</b>
+<form method="post">
+    {% csrf_token %}
+    {{ create_form.as_p }}
+    <button type="submit">Create</button>
+</form>
+
+</body>
+</html>
