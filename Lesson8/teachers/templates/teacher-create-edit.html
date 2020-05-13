@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ action }}</title>
+</head>
+<body>
+
+<a href="{% url 'index' %}">Main page</a> <a href="{% url 'teachers:show' %}">Show teachers</a><br><br>
+<b>{{ action }}</b>
+<form method="post">
+    {% csrf_token %}
+    {{ create_form.as_p }}
+    <button type="submit">{{ action }}</button>
+</form>
+{% if id %}
+    <form action="{% url 'teachers:delete' id %}">
+        <input type="submit" value="Delete" />
+    </form>
+{% endif %}
+
+</body>
+</html>
