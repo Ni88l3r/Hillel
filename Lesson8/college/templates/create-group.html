@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create group</title>
+</head>
+<body>
+
+<a href="{% url 'index' %}">Main page</a> <a href="{% url 'generate_teachers:groups' %}">Show groups</a><br><br>
+<b>CREATE GROUP</b>
+<form method="post">
+    {% csrf_token %}
+    {{ create_form.as_p }}
+    <button type="submit">Create</button>
+</form>
+
+</body>
+</html>

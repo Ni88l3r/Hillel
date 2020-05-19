@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Teachers list</title>
+</head>
+<body>
+
+<a href="{% url 'index' %}">Main page</a> <a href="{% url 'teachers:create' %}">Create teacher</a><br><br>
+<b>Teachers list:</b><br>
+{% if teachers %}
+    {% for teacher in teachers %}
+        <form action="{% url 'teachers:edit' teacher.id %}">
+            {{ teacher.info }}
+            <input type="submit" value="Edit" />
+        </form><br>
+    {% endfor %}
+{% else %}
+    List is empty.
+{% endif %}
+
+</body>
+</html>
