@@ -32,7 +32,7 @@ def edit(request, pk):
         form = CreateStudentForm(instance=student)
     context = {
         'create_form': form,
-        'action': 'Create student',
+        'action': 'Edit student',
         'id': pk,
     }
     return render(request, 'student-create-edit.html', context=context)

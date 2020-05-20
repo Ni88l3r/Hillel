@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf import settings
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import include, path, re_path
 
 from teachers import views
 
@@ -25,6 +25,7 @@ urlpatterns = [
     path('groups/', include('groups.urls')),
     path('students/', include('students.urls')),
     path('teachers/', include('teachers.urls')),
+    re_path(r'^silk/', include('silk.urls', namespace='silk')),
 ]
 
 if settings.DEBUG:
