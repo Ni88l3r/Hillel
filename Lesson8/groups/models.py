@@ -1,7 +1,8 @@
 from django.db import models
 
-from teachers.models import Teacher
 from students.models import Student
+
+from teachers.models import Teacher
 
 
 class Group(models.Model):
