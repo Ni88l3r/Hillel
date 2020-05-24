@@ -7,16 +7,34 @@
 <body>
 
 <a href="{% url 'index' %}">Main page</a> <a href="{% url 'students:create' %}">Create student</a><br><br>
-<b>Students list:</b><br>
 {% if students %}
+    <table bordercolor="black" border="1" cellpadding="3" cellspacing="0">
+        <caption><b>Students list:</b></caption>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
+                <th>Phone</th>
+                <th>Edit</th>
+            </tr>
     {% for student in students %}
-        <form action="{% url 'students:edit' student.id %}">
-            {{ student.info }}
-        <input type="submit" value="Edit" />
-        </form><br>
+            <tr>
+                <td>{{ student.id }}</td>
+                <td>{{ student.first_name }}</td>
+                <td>{{ student.last_name }}</td>
+                <td>{{ student.age }}</td>
+                <td>{{ student.phone }}</td>
+                <td>
+                    <form action="{% url 'students:edit' student.id %}">
+                    <input type="submit" value="Edit" />
+                    </form>
+                </td>
+            </tr>
     {% endfor %}
+    </table>
 {% else %}
-    List is empty.
+    Students list is empty.
 {% endif %}
 
 </body>

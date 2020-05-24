@@ -7,16 +7,36 @@
 <body>
 
 <a href="{% url 'index' %}">Main page</a> <a href="{% url 'groups:create' %}">Create group</a><br><br>
-<b>Groups list:</b><br>
 {% if groups %}
+    <table bordercolor="black" border="1" cellpadding="3" cellspacing="0">
+        <caption><b>Groups list:</b></caption>
+            <tr>
+                <th>ID</th>
+                <th>Group Name</th>
+                <th>Department</th>
+                <th>Number of Students</th>
+                <th>Curator</th>
+                <th>Headman</th>
+                <th>Edit</th>
+            </tr>
     {% for group in groups %}
-        <form action="{% url 'groups:edit' group.id %}">
-            {{ group.info }}
-            <input type="submit" value="Edit" />
-        </form><br>
+            <tr>
+                <td>{{ group.id }}</td>
+                <td>{{ group.group_name }}</td>
+                <td>{{ group.department }}</td>
+                <td>{{ group.number_of_students }}</td>
+                <td>{{ group.curator }}</td>
+                <td>{{ group.headman }}</td>
+                <td>
+                    <form action="{% url 'groups:edit' group.id %}">
+                    <input type="submit" value="Edit" />
+                    </form>
+                </td>
+            </tr>
     {% endfor %}
+    </table>
 {% else %}
-    List is empty.
+    Groups list is empty.
 {% endif %}
 
 </body>

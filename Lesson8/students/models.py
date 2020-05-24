@@ -7,6 +7,9 @@ class Student(models.Model):
     age = models.PositiveSmallIntegerField()
     phone = models.CharField(max_length=16, default='')
 
+    def __str__(self):
+        return f'{self.first_name} {self.last_name}'
+
     @property
     def info(self) -> str:
         return f'{self.id} | {self.first_name} {self.last_name} | {str(self.age)} | {self.phone}'

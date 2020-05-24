@@ -46,7 +46,7 @@ def delete(request, pk):
 
 def show(request):
     params = ['group_name', 'department', 'number_of_students']
-    groups = Group.objects.all()
+    groups = Group.objects.all().select_related('headman', 'curator')
     for param in params:
         value = request.GET.get(param)
         if value:

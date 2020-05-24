@@ -6,6 +6,10 @@ from faker import Faker
 
 from groups.models import Group
 
+from students.models import Student
+
+from teachers.models import Teacher
+
 
 class Command(BaseCommand):
     help = 'Generate random groups' # noqa django requires
@@ -22,6 +26,8 @@ class Command(BaseCommand):
                 group_name=fake.city(),
                 department=fake.job(),
                 number_of_students=random.randint(20, 30),
+                headman=Student.objects.order_by('?').last(),
+                curator=Teacher.objects.order_by('?').last()
             ))
         Group.objects.bulk_create(groups)
         self.stdout.write(f'Created {count} groups.')
