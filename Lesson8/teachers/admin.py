@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from teachers.models import Teacher
+from teachers.models import Logger, Teacher
 
 
 class TeacherAdmin(admin.ModelAdmin):
@@ -10,3 +10,12 @@ class TeacherAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Teacher, TeacherAdmin)
+
+
+class LoggerAdmin(admin.ModelAdmin):
+    fields = ('id', 'created', 'method', 'path', 'execution_time')
+    readonly_fields = ('id', 'created', 'method', 'path', 'execution_time')
+    list_display = ('id', 'created', 'method', 'path', 'execution_time')
+
+
+admin.site.register(Logger, LoggerAdmin)

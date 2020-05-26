@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'teachers',
     'students',
     'groups',
+    'silk',
 ]
 
 MIDDLEWARE = [
@@ -52,6 +53,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'silk.middleware.SilkyMiddleware',
+    'teachers.middlewares.LogMiddleware',
 ]
 
 ROOT_URLCONF = 'college.urls'
