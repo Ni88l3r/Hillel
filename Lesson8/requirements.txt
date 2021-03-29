@@ -23,7 +23,7 @@ MarkupSafe==1.1.1
 mccabe==0.6.1
 pycodestyle==2.5.0
 pyflakes==2.1.1
-Pygments==2.6.1
+Pygments==2.7.4
 python-dateutil==2.8.1
 pytz==2020.1
 requests==2.23.0
